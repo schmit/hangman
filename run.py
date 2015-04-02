@@ -38,8 +38,6 @@ args = parser.parse_args()
 if args.guesser == 'h':
     args.verbose = True
 
-print args
-
 wordlist = parseWordFile('data/' + args.wordlist)
 
 chooser = parseAgentOptions(args.chooser)
