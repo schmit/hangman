@@ -2,6 +2,13 @@ import string
 import random
 
 class Agent:
+    '''
+    Agent picks a random word from the wordlist as chooser.
+    Agent picks a random remaining character as guess.
+
+    This simple agent shows the setup of the methods of an Agent.
+    '''
+
     def __init__(self):
         self.available = [x for x in string.ascii_lowercase]
 
@@ -14,9 +21,10 @@ class Agent:
         self.available.remove(ch)
         return ch
 
-class HumanAgent:
-    def __init__(self):
-        self.available = [x for x in string.ascii_lowercase]
+class HumanAgent(Agent):
+    '''
+    HumanAgent asks user for input using the command line interface
+    '''
 
     def getWord(self, wordlist):
         while True:

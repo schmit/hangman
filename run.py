@@ -1,3 +1,7 @@
+'''
+This script is useful for running a game of Hangman from the command line
+'''
+
 import argparse
 
 from hangman.hangman import Hangman

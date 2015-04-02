@@ -1,10 +1,12 @@
 class Hangman:
     '''
     Hangman class implement the game dynamics of Hangman
+
+    To run, it requires a Chooser agent, a Guesser agent, and a list of words
     '''
-    def __init__(self, host, guesser, wordlist, lives=10, verbose=True, debug=False):
+    def __init__(self, chooser, guesser, wordlist, lives=10, verbose=True, debug=False):
         # the agents
-        self.host = host
+        self.chooser = chooser
         self.guesser = guesser
 
         self.wordlist = wordlist  # the words available
@@ -34,7 +36,7 @@ class Hangman:
         return self.win
 
     def getWord(self):
-        self.word = self.host.getWord(self.wordlist)
+        self.word = self.chooser.getWord(self.wordlist)
         self.missing_chars = {ch for ch in self.word}
         if self.debug:
             print 'Hidden word: {}'.format(self.word)
@@ -79,10 +81,10 @@ class Hangman:
                 print 'The guesser wins!'
                 print 'Lives left: {}'.format(self.lives)
             else:
-                print 'The host wins!'
+                print 'The chooser wins!'
 
             print 'Guesses used: {}'.format(self.nguesses)
-            print 'The word the host was looking for: {}'.format(self.word)
+            print 'The word the chooser was looking for: {}'.format(self.word)
 
     def summary(self):
         return {'win': self.win, 'nguesses': self.nguesses, 'nlives': self.lives,
