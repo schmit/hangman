@@ -16,6 +16,7 @@ def parseWordFile(filename):
 
     return wordlist
 
+
 def parseAgentOptions(option):
     if option == 'a':
         return Agent()
@@ -23,14 +24,19 @@ def parseAgentOptions(option):
         return HumanAgent()
     raise ValueError('option {} not available')
 
+
 agentChoices = ['a', 'h']
 
 parser = argparse.ArgumentParser(description='Hangman game.')
 
-parser.add_argument('-c', '--chooser', help='Set chooser agent', choices=agentChoices, default='a')
-parser.add_argument('-g', '--guesser', help='Set guesser agent', choices=agentChoices, default='h')
-parser.add_argument('-w', '--wordlist', help='Path to wordlist to use', default='wordsEn.txt')
-parser.add_argument('-v', '--verbose', help='Verbose output', action="store_true")
+parser.add_argument('-c', '--chooser', help='Set chooser agent',
+                    choices=agentChoices, default='a')
+parser.add_argument('-g', '--guesser', help='Set guesser agent',
+                    choices=agentChoices, default='h')
+parser.add_argument('-w', '--wordlist', help='Path to wordlist to use',
+                    default='wordsEn.txt')
+parser.add_argument('-v', '--verbose', help='Verbose output',
+                    action="store_true")
 
 args = parser.parse_args()
 

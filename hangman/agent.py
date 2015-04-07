@@ -1,6 +1,7 @@
 import string
 import random
 
+
 class Agent:
     '''
     Agent picks a random word from the wordlist as chooser.
@@ -30,6 +31,7 @@ class Agent:
         ch = random.sample(self.available, 1)[0]
         self.available.remove(ch)
         return ch
+
 
 class HumanAgent(Agent):
     '''

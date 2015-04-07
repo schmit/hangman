@@ -1,5 +1,6 @@
 '''
-This simple script is a simple template for simulating the performance of an agent.
+This simple script is a simple template for
+simulating the performance of an agent.
 
 You can use this to see how well a custom agent performs.
 '''
@@ -7,7 +8,7 @@ You can use this to see how well a custom agent performs.
 from hangman.hangman import Hangman
 from hangman.agent import Agent
 
-## SET OPTIONS HERE
+''' SET OPTIONS HERE '''
 # number of simulations
 nsim = 1000
 # number of lives of guesser
@@ -17,7 +18,7 @@ filename = 'wordsEn.txt'
 # agent used
 agent = Agent
 
-## SCRIPT
+''' SCRIPT '''
 
 def parseWordFile(filename):
     wordlist = []
@@ -39,4 +40,3 @@ for sim in xrange(nsim):
     wins += outcome
 
 print 'Performance: {} / {}'.format(wins, nsim)
-
