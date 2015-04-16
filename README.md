@@ -1,5 +1,5 @@
 Hangman implementation
 ======================
 
-Simple Python implementation of Hangman for [www.stanford.edu/~schmit/cme193](CME 193) demo.
+Simple Python implementation of Hangman for [CME 193](www.stanford.edu/~schmit/cme193) demo.
 
