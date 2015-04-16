@@ -4,7 +4,7 @@ class Hangman:
 
     To run, it requires a Chooser agent, a Guesser agent, and a list of words
     '''
-    def __init__(self, chooser, guesser, wordlist, lives=10,
+    def __init__(self, chooser, guesser, lives=10,
                  verbose=True, debug=False):
         '''
         Setup of the game
@@ -13,7 +13,6 @@ class Hangman:
         self.chooser = chooser
         self.guesser = guesser
 
-        self.wordlist = wordlist  # the words available
         self.lives = lives  # number of lives for guesser
 
         self.verbose = verbose
@@ -58,7 +57,7 @@ class Hangman:
         Function to query the chooser for a word
         '''
         # Ask the chooser to pick a word from the wordlist
-        self.word = self.chooser.getWord(self.wordlist)
+        self.word = self.chooser.getWord()
 
         # Convert the word into a set of characters: all these characters need
         # to be guessed.

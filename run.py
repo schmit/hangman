@@ -17,11 +17,11 @@ def parseWordFile(filename):
     return wordlist
 
 
-def parseAgentOptions(option):
+def parseAgentOptions(option, wordlist):
     if option == 'a':
-        return Agent()
+        return Agent(wordlist)
     if option == 'h':
-        return HumanAgent()
+        return HumanAgent(wordlist)
     raise ValueError('option {} not available')
 
 
@@ -46,9 +46,9 @@ if args.guesser == 'h':
 
 wordlist = parseWordFile('data/' + args.wordlist)
 
-chooser = parseAgentOptions(args.chooser)
-guesser = parseAgentOptions(args.guesser)
+chooser = parseAgentOptions(args.chooser, wordlist)
+guesser = parseAgentOptions(args.guesser, wordlist)
 
-h = Hangman(chooser, guesser, wordlist, verbose=args.verbose)
+h = Hangman(chooser, guesser, verbose=args.verbose)
 
 outcome = h.play()

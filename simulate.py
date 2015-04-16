@@ -34,8 +34,8 @@ wordlist = parseWordFile('data/' + filename)
 
 # run games
 for sim in xrange(nsim):
-    a = agent()
-    h = Hangman(a, a, wordlist, lives=lives, verbose=False)
+    a = agent(wordlist)
+    h = Hangman(a, a, lives=lives, verbose=False)
     outcome = h.play()
     wins += outcome
 

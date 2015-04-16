@@ -10,17 +10,17 @@ class Agent:
     This simple agent shows the setup of the methods of an Agent.
     '''
 
-    def __init__(self):
+    def __init__(self, wordlist):
         self.available = [x for x in string.ascii_lowercase]
+        self.wordlist = list(wordlist)  # create a copy
 
-    def getWord(self, wordlist):
+    def getWord(self):
         '''
         Returns a word from the wordlist as word to be guessed.
 
         In this case, we pick a random word from the wordlist
         '''
-        self.wordlist = wordlist[:]
-        return random.sample(wordlist, 1)[0]
+        return random.choice(self.wordlist)
 
     def getGuess(self, hiddenWord):
         '''
@@ -38,14 +38,14 @@ class HumanAgent(Agent):
     HumanAgent asks user for input using the command line interface
     '''
 
-    def getWord(self, wordlist):
+    def getWord(self):
         '''
         Query the user for a word, making sure it is in the word list
         '''
         while True:
             word = raw_input('Pick a word: ')
             word = word.lower()
-            if word in wordlist:
+            if word in self.wordlist:
                 return word
             else:
                 print 'Word not recognized, please try again'
